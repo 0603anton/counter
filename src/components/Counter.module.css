@@ -6,14 +6,18 @@ body {
     border: 1px solid lightblue;
     border-radius: 5px;
     padding: 10px;
+
 }
 
 .counterNum {
-background: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightblue;
+    margin-bottom: 15px;
 }
 
-/*.buttonContainer{*/
-/*    border: 1px solid lightblue;*/
-/*    border-radius: 5px;*/
-/*    padding: 10px;*/
-/*}*/
+.buttonContainer {
+    display: flex;
+    gap: 15px;
+}

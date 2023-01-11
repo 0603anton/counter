@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Counter.module.css'
 import Button from './Button';
 
 const Counter = () => {
+
+    const [number,setNumber]=useState(0)
+
     return (
         <div className={s.container}>
             <div className={`${s.counterNum} ${s.container}`}>
-                NUMBER
+                {number}
             </div>
-            <div className={s.container}>
-                <Button title={`inc`}/>
-                <Button title={`reset`}/>
+            <div className={`${s.container} ${s.buttonContainer}`}>
+                <Button title={`inc`} numState={number}/>
+                <Button title={`reset`} numState={number}/>
             </div>
         </div>
     );
