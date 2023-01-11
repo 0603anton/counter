@@ -1,0 +1,19 @@
+body {
+    background: #282c34;
+}
+
+.container {
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.counterNum {
+background: lightblue;
+}
+
+/*.buttonContainer{*/
+/*    border: 1px solid lightblue;*/
+/*    border-radius: 5px;*/
+/*    padding: 10px;*/
+/*}*/
