@@ -2,6 +2,13 @@ body {
     background: #282c34;
 }
 
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 300px;
+}
+
 .container {
     border: 1px solid lightblue;
     border-radius: 5px;
@@ -15,9 +22,22 @@ body {
     align-items: center;
     background: lightblue;
     margin-bottom: 15px;
+flex-grow: 1;
+    font-size: 52px;
+    font-weight: bolder;
 }
 
 .buttonContainer {
     display: flex;
     gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    font-size: 25px;
+}
+
+.maxValue{
+    color:red;
 }
