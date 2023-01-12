@@ -2,30 +2,25 @@ import React, {useState} from 'react';
 import s from './Counter.module.css'
 import Button from './Button';
 
-const Counter = () => {
+type CounterPropsType = {
+    counterState: number
+    resetCounter:()=>void
+    incCounter:()=>void
+}
 
-    const [number,setNumber]=useState(0)
+const Counter = (props: CounterPropsType) => {
 
-    const incCounter = () => {
-        if (number <5){
-            setNumber(number+1)
-        }
-    }
 
-    const resetCounter = () => {
-        setNumber(0)
-    }
-
-    const numberClassnames = s.counterNum +` `+ s.container + ` `+ (number ==5? s.maxValue : ``)
+    const numberClassnames = s.counterNum + ` ` + s.container + ` ` + (props.counterState == 5 ? s.maxValue : ``)
 
     return (
         <div className={`${s.container} ${s.wrapper}`}>
             <div className={numberClassnames}>
-                {number}
+                {props.counterState}
             </div>
             <div className={`${s.container} ${s.buttonContainer}`}>
-                <Button onClick={incCounter} title={`inc`} disabled={number == 5}/>
-                <Button onClick={resetCounter} title={`reset`} disabled={number<=0}/>
+                <Button onClick={props.incCounter} title={`inc`} disabled={props.counterState == 5}/>
+                <Button onClick={props.resetCounter} title={`reset`} disabled={props.counterState <= 0}/>
             </div>
         </div>
     );
