@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import s from './Counter.module.css'
 import Button from './Button';
 
