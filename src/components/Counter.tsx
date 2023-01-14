@@ -13,7 +13,7 @@ type CounterPropsType = {
 const Counter = (props: CounterPropsType) => {
 
 
-    const numberClassnames = s.counterNum + ` ` + s.container + ` ` + (props.counterState == props.maxValue ? s.maxValue : ``)
+    const numberClassnames = s.counterNum + ` ` + s.container + ` ` + (props.counterState === props.maxValue ? s.maxValue : null)
 
     return (
         <div className={`${s.container} ${s.wrapper}`}>
@@ -21,7 +21,7 @@ const Counter = (props: CounterPropsType) => {
                 {props.counterState}
             </div>
             <div className={`${s.container} ${s.buttonContainer}`}>
-                <Button onClick={props.incCounter} title={`inc`} disabled={props.counterState == props.maxValue}/>
+                <Button onClick={props.incCounter} title={`inc`} disabled={props.counterState === props.maxValue}/>
                 <Button onClick={props.resetCounter} title={`reset`} disabled={props.counterState <= props.minValue}/>
             </div>
         </div>
