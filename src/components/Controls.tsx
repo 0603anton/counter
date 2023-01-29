@@ -8,6 +8,7 @@ type ControlsPropsType = {
     minValue: number
     changeMaxValueHandler:(value:number)=>void
     changeMinValueHandler:(value:number)=>void
+    setLocaleStorage:()=>void
 }
 
 const Controls = (props:ControlsPropsType) => {
@@ -24,8 +25,7 @@ const Controls = (props:ControlsPropsType) => {
                 </div>
             </div>
             <div className={`${s.container} ${s.buttonContainer}`}>
-                <Button title={`Set`} disabled={props.minValue <= 0 || props.minValue >= props.maxValue} onClick={() => {
-                }}/>
+                <Button title={`Set`} disabled={props.minValue <= 0 || props.minValue >= props.maxValue} onClick={props.setLocaleStorage}/>
             </div>
         </div>
     );

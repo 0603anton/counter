@@ -14,6 +14,7 @@ const Counter = (props: CounterPropsType) => {
 
 
     let message;
+    let error = true;
     switch (true) {
         case (props.minValue < 0):
             message = `Incorrect value!`
@@ -22,13 +23,15 @@ const Counter = (props: CounterPropsType) => {
             message = `Incorrect value!`
             break;
         default:
-            message = props.counterState;
+            message = 'enter values and press "set"'
+            error = false;
+               // props.counterState;
     }
 
     let isDisabled = (typeof message != `number`);
 
     const numberClassnames = s.counterNum + ` ` + s.container + ` ` + (props.counterState === props.maxValue ? s.maxValue : null) +
-        ` ` + (message !== props.counterState ? s.error : null)
+        ` ` + (error ? s.error : null)
 
 
     return (
