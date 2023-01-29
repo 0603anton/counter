@@ -1,0 +1,45 @@
+.ControlsWrapper{
+    justify-content: space-around;
+    margin-right: 40px;
+}
+
+.minMaxWrapper{
+    border: 1px solid skyblue;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    gap:30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.minMaxTitles{
+    font-size: 32px;
+    font-weight: bolder;
+    color:lightblue;
+}
+
+.minMaxInputs{
+   display: flex;
+flex-direction: column;
+gap:20px}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.container {
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}

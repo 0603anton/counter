@@ -2,7 +2,7 @@ body {
     background: #282c34;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     min-width: 300px;
@@ -22,7 +22,7 @@ body {
     align-items: center;
     background: lightblue;
     margin-bottom: 15px;
-flex-grow: 1;
+    flex-grow: 1;
     font-size: 52px;
     font-weight: bolder;
 }
@@ -34,10 +34,14 @@ flex-grow: 1;
     align-items: center;
 }
 
-button{
+button {
     font-size: 25px;
 }
 
-.maxValue{
-    color:red;
+.maxValue {
+    color: red;
+}
+
+.error {
+    color: red;
 }

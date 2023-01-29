@@ -1,34 +1,52 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Counter from './components/Counter';
+import Controls from './components/Controls';
 
 function App() {
 
-    const maxValue = 5;
-    const minValue = 0;
+    // const counterMaxValue = 5;
+    // const counterMinValue = 0;
 
-    const [number, setNumber] = useState(0)
+    const [counterMaxValue, setCounterMaxValue] = useState(5)
+    const [counterMinValue, setCounterMinValue] = useState(0)
+    const [counterValue, setCounterValue] = useState(0)
 
-    const incCounter = () => {
-        if (number < maxValue) {
-            setNumber(number + 1)
+    /* Counter functions*/
+
+    const incCounterHandler = () => {
+        if (counterValue < counterMaxValue) {
+            setCounterValue(counterValue + 1)
         }
     }
 
-    const resetCounter = () => {
-        setNumber(0)
+    const resetCounterHandler = () => {
+        setCounterValue(0)
     }
 
+/* min max Controls functions*/
+
+    const changeMaxValueHandler = (value:number) => {
+        setCounterMaxValue(value)
+    }
+    const changeMinValueHandler = (value:number) => {
+        setCounterMinValue(value)
+    }
 
     return (
         <div className={'mainContainer'}>
+            <Controls
+                maxValue={counterMaxValue}
+                minValue={counterMinValue}
+                changeMaxValueHandler={changeMaxValueHandler}
+                changeMinValueHandler={changeMinValueHandler}
+            />
             <Counter
-                incCounter={incCounter}
-                resetCounter={resetCounter}
-                counterState={number}
-                maxValue={maxValue}
-                minValue={minValue}
+                incCounter={incCounterHandler}
+                resetCounter={resetCounterHandler}
+                counterState={counterValue}
+                maxValue={counterMaxValue}
+                minValue={counterMinValue}
             />
         </div>
     );

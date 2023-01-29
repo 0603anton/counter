@@ -12,16 +12,33 @@ type CounterPropsType = {
 const Counter = (props: CounterPropsType) => {
 
 
-    const numberClassnames = s.counterNum + ` ` + s.container + ` ` + (props.counterState === props.maxValue ? s.maxValue : null)
+
+    let message;
+    switch (true) {
+        case (props.minValue < 0):
+            message = `Incorrect value!`
+            break;
+        case (props.minValue >= props.maxValue):
+            message = `Incorrect value!`
+            break;
+        default:
+            message = props.counterState;
+    }
+
+    let isDisabled = (typeof message != `number`);
+
+    const numberClassnames = s.counterNum + ` ` + s.container + ` ` + (props.counterState === props.maxValue ? s.maxValue : null) +
+        ` ` + (message !== props.counterState ? s.error : null)
+
 
     return (
         <div className={`${s.container} ${s.wrapper}`}>
             <div className={numberClassnames}>
-                {props.counterState}
+                {message}
             </div>
             <div className={`${s.container} ${s.buttonContainer}`}>
-                <Button onClick={props.incCounter} title={`inc`} disabled={props.counterState === props.maxValue}/>
-                <Button onClick={props.resetCounter} title={`reset`} disabled={props.counterState <= props.minValue}/>
+                <Button onClick={props.incCounter} title={`inc`} disabled={props.counterState === props.maxValue || isDisabled}/>
+                <Button onClick={props.resetCounter} title={`reset`} disabled={isDisabled}/>
             </div>
         </div>
     );
