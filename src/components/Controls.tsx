@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Controls.module.css'
 import Button from './Button';
 import Input from './Input';
+import {MessageType} from '../App';
 
 type ControlsPropsType = {
     maxValue: number
@@ -9,6 +10,7 @@ type ControlsPropsType = {
     changeMaxValueHandler:(value:number)=>void
     changeMinValueHandler:(value:number)=>void
     setLocaleStorage:()=>void
+    message:MessageType
 }
 
 const Controls = (props:ControlsPropsType) => {
