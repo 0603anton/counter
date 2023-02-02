@@ -5,7 +5,7 @@ import Controls from './components/Controls';
 
 
 export type MessageType = number | string;
-
+// TODO Задизайблит сет до изменения , ресет задизейблить если значение не изменено в апп стр 18 доделать универсальную функцию + поиграть с инпут для создания универсальной функции
 function App() {
     const [counterMaxValue, setCounterMaxValue] = useState(5)
     const [counterMinValue, setCounterMinValue] = useState(0)
