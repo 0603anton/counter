@@ -15,7 +15,20 @@ function App() {
 
     /*state for useEffect*/
 
+    // const checkLS = (key: string, callback: (value:number)=>{}) => {
+    //     const value = localStorage.getItem(key);
+    //
+    //     if (value) {
+    //         callback(JSON.parse(value))
+    //     }
+    // }
+
     useEffect(() => {
+        // checkLS('counterValue', (value:number) => {
+        //     setCounterValue(value)
+        //     setMessage(value)
+        // })
+
         let counterValueAsString = localStorage.getItem(`counterValue`)
         let counterMaxValueAsString = localStorage.getItem(`counterMaxValue`)
         let counterMinValueAsString = localStorage.getItem(`counterMinValue`)
@@ -44,20 +57,29 @@ function App() {
             setMessage(`Incorrect value!`)
             setError(true)
         }
-
-
-
-        // setError(false);
     }, [counterMaxValue, counterMinValue])
 
     /* Counter functions*/
 
     const incCounterHandler = () => {
-        // if (counterValue < counterMaxValue) {
-            setCounterValue(counterValue + 1)
-        setMessage(counterValue+1)
-        // TODO как избавиться от этой +1
-        // }
+        if (counterValue < counterMaxValue) {
+
+            // setCounterValue(prevValue => {
+            //     setMessage(prevValue + 1)
+            //     return prevValue + 1
+            // }) вариант решения с именованной функцией ниже с анонимной, чтобы избежать асинхронности при обработке use statom
+            // в общем надо помнить про возможность передачи функции в usestate, но мой вариант с созданием новой перменной очень даже рабочий
+
+            setCounterValue(() => {
+                setMessage( counterValue+ 1)
+                return counterValue + 1
+            })
+
+
+            // let newCounterValue = counterValue + 1;
+            // setCounterValue(newCounterValue)
+            // setMessage(newCounterValue)
+        }
     }
 
     const resetCounterHandler = () => {
@@ -69,12 +91,16 @@ function App() {
     /* min max Controls functions*/
 
     const changeMaxValueHandler = (value: number) => {
+        // if (name == 'max')
+        // {..data,[name]: value}
         setCounterMaxValue(value)
-        setMessage(`set value`)
+        setMessage(`enter values and press 'set`)
+        setError(false)
     }
     const changeMinValueHandler = (value: number) => {
         setCounterMinValue(value)
-        setMessage(`set value`)
+        setMessage(`enter values and press 'set`)
+        setError(false)
     }
 
     /*Function fot set LocalStorage*/
@@ -85,6 +111,7 @@ function App() {
         localStorage.setItem(`counterMaxValue`, JSON.stringify(counterMaxValue))
         localStorage.setItem(`counterMinValue`, JSON.stringify(counterMinValue))
         setMessage(counterMinValue)
+        setError(false)
     }
 
 

@@ -31,7 +31,7 @@ const Counter = (props: CounterPropsType) => {
     //     let error = false;
     // }
     //
-    let isDisabled = false;
+    let isDisabled = typeof props.message !== `number`;
 
     const numberClassnames = s.counterNum + ` ` + s.container + ` ` + (props.counterState === props.maxValue ? s.maxValue : null) +
         ` ` + (props.error ? s.error : null)

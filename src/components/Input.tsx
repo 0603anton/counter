@@ -15,7 +15,7 @@ const Input = (props: InputPropsType) => {
 
     return (
         <>
-            <input onChange={onClickHandlder} value={props.value} type="number"
+            <input onChange={onClickHandlder} name={'max'} value={props.value} type="number"
                    className={s.minMaxInput}/>
         </>
     );

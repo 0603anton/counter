@@ -27,7 +27,7 @@ const Controls = (props:ControlsPropsType) => {
                 </div>
             </div>
             <div className={`${s.container} ${s.buttonContainer}`}>
-                <Button title={`Set`} disabled={props.minValue <= 0 || props.minValue >= props.maxValue} onClick={props.setLocaleStorage}/>
+                <Button title={`Set`} disabled={props.minValue < 0 || props.minValue >= props.maxValue} onClick={props.setLocaleStorage}/>
             </div>
         </div>
     );

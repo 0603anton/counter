@@ -4,17 +4,18 @@ import s from './Button.module.css'
 type ButtonPropsType = {
     title: string
     disabled: boolean
-    onClick:()=>void
+    onClick: () => void
 }
 
-// TODO как правильно передать состояние дизаэйблед
-//TODO Работа с Event на onсlick событии
-//https://stackoverflow.com/questions/44764146/why-is-the-mouseevent-in-the-checkbox-event-handler-not-generic
 const Button = (props: ButtonPropsType) => {
+
+    const onclickHandler = () => {
+        props.onClick()
+    }
 
     return (
         <div>
-            <button onClick={props.onClick} disabled={props.disabled} className={s.button}>{props.title}</button>
+            <button onClick={onclickHandler} disabled={props.disabled} className={s.button}>{props.title}</button>
         </div>
     );
 };
